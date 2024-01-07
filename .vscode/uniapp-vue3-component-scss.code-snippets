@@ -1,0 +1,29 @@
+{
+  "vue3组件快捷生成模版": {
+    "scope": "vue",
+    "prefix": "@vue3-componet-less",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "",
+      "interface Props {",
+      "  example: string;",
+      "}",
+      "",
+      "const props = withDefaults(defineProps<Props>(), {",
+      "  example: '',",
+      "});",
+      "",
+      "</script>",
+      "",
+      "<template>",
+      "  <div>{{ props.example }}</div>",
+      "</template>",
+      "",
+      "<style scoped lang=\"less\">",
+      "",
+      "</style>",
+      "",
+    ],
+    "description": "vue3组件快捷生成模版"
+  }
+}

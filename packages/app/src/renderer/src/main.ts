@@ -1,4 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import 'virtual:uno.css';
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './routes';
+import { pinia } from './store';
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app
+  .use(pinia)
+  .use(router)
+  .mount('#app');
