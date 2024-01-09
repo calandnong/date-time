@@ -10,5 +10,11 @@
   },
   "cSpell.words": [
     "pinia"
-  ]
+  ],
+  "editor.tabSize": 2,
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

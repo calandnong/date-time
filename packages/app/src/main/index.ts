@@ -2,6 +2,8 @@ import { join } from 'path';
 import { app, shell, BrowserWindow, ipcMain } from 'electron';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png?asset';
+import { startDataSourceService } from './data-source/core/applicaiton';
+import { getUserCount } from './data-source/services/user.service';
 
 function createWindow(): void {
   // Create the browser window.
@@ -61,6 +63,11 @@ function createWindow(): void {
 
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron');
+  startDataSourceService();
+
+  getUserCount().then((res) => {
+    console.log('数据来了', res);
+  });
 
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window);
