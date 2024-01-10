@@ -9,7 +9,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
-    "pinia"
+    "pinia",
+    "typeorm"
   ],
   "editor.tabSize": 2,
   "prettier.enable": false,

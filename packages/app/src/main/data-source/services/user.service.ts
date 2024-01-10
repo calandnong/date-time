@@ -4,7 +4,7 @@ import User from '../entities/user.entity';
 
 // 获取存储库
 const getUserQueryBuilder = async () => {
-  getDataSource()
+  await getDataSource()
     .initialize();
   return getDataSource().getRepository(User).createQueryBuilder('user');
 };
