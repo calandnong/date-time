@@ -25,7 +25,9 @@
     "@electron-toolkit/utils": "^2.0.0",
     "better-sqlite3": "^9.2.2",
     "electron-updater": "^6.1.1",
+    "inversify": "^6.0.2",
     "pinia": "^2.1.7",
+    "typedi": "^0.10.0",
     "typeorm": "^0.3.19",
     "vue-router": "4"
   },

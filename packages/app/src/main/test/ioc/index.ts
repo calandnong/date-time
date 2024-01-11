@@ -20,6 +20,13 @@ function inject() {
   };
 }
 
+function Test() {
+  return <T extends new (...args: any[]) => any>(target: T) => {
+    console.log('Test', target);
+  };
+}
+
+@Test()
 export class Service {
   @inject()
   userRepository!: ARepository;

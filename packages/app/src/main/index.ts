@@ -4,11 +4,8 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png?asset';
 
 // import { startDataSourceService } from './data-source/core/applicaiton';
-import { getUserCount } from './data-source/services/user.service';
-import { Service } from './test/ioc';
-
-const q = new Service();
-console.log(q);
+// import { getUserCount } from './data-source/services/user.service';
+import '../main/data-source/core/test/main';
 
 function createWindow(): void {
   // Create the browser window.
@@ -70,9 +67,9 @@ app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron');
   // startDataSourceService();
 
-  getUserCount().then((res) => {
-    console.log('数据来了', res);
-  });
+  // getUserCount().then((res) => {
+  //   console.log('数据来了', res);
+  // });
 
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window);
