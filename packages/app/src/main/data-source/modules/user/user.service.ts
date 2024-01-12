@@ -1,9 +1,10 @@
-import { Inject, Service } from 'typedi';
+import { inject } from 'inversify';
+import { Service } from '../../framework/decorator/service';
 import type UserDao from './user.dao';
 
-@Service('UserService')
+@Service()
 export class UserService {
-  @Inject('UserDao')
+  @inject('UserDao')
   userDao!: UserDao;
 
   getList() {

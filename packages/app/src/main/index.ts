@@ -2,10 +2,7 @@ import { join } from 'path';
 import { app, shell, BrowserWindow, ipcMain } from 'electron';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png?asset';
-
-// import { startDataSourceService } from './data-source/core/applicaiton';
-// import { getUserCount } from './data-source/services/user.service';
-import '../main/data-source/core/test/main';
+import { startDBService } from './data-source';
 
 function createWindow(): void {
   // Create the browser window.
@@ -63,24 +60,24 @@ function createWindow(): void {
   ipcMain.on('window-all-closed', () => app.quit());
 }
 
-app.whenReady().then(() => {
-  electronApp.setAppUserModelId('com.electron');
-  // startDataSourceService();
+app.whenReady()
+  .then(() => {
+    // 启动数据库
+    return startDBService();
+  })
+  .then(() => {
+    electronApp.setAppUserModelId('com.electron');
 
-  // getUserCount().then((res) => {
-  //   console.log('数据来了', res);
-  // });
+    app.on('browser-window-created', (_, window) => {
+      optimizer.watchWindowShortcuts(window);
+    });
 
-  app.on('browser-window-created', (_, window) => {
-    optimizer.watchWindowShortcuts(window);
+    createWindow();
+
+    app.on('activate', () => {
+      if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    });
   });
-
-  createWindow();
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

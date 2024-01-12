@@ -1,4 +1,4 @@
-import { defineModule } from '../../../framework';
+import { defineModule } from '../../framework';
 import UserDao from './user.dao';
 import UserEntity from './user.entity';
 import { UserService } from './user.service';
