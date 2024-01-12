@@ -1,9 +1,9 @@
-import { defineModule } from '../../framework';
+import { DefineModule } from '../../framework';
 import UserDao from './user.dao';
 import UserEntity from './user.entity';
 import { UserService } from './user.service';
 
-export default defineModule({
+@DefineModule({
   entity: [
     UserEntity,
   ],
@@ -13,4 +13,6 @@ export default defineModule({
   dao: [
     UserDao,
   ],
-});
+})
+export class UserModule {
+}

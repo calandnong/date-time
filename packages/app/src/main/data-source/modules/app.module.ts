@@ -1,5 +1,5 @@
 import { DefineModule } from '../framework';
-import UserModule from './user/user.module';
+import { UserModule } from './user/user.module';
 
 @DefineModule({
   module: [

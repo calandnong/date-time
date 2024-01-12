@@ -1,6 +1,6 @@
 import type { DBDriver } from '../driver';
 import { ormContainer } from '../ioc';
-import type { Constructor, Module } from '../module';
+import type { Constructor, Module } from '../decorator';
 import { INJECT_KEYS, META_TAGS, MODULE_DEFINE_DECORATOR, MODULE_DEFINE_DECORATOR_MODULE_DATA } from '../constant';
 import type { ModuleImport } from '../decorator/module';
 
